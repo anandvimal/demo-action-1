@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Requests
+        run: |
+          curl -X POST https://api.github.com/repos/DhayananthK/demo-action-2/dispatches \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -u ${{ secrets.ACCESS_TOKEN }} \
+            --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
