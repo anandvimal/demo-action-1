@@ -1,5 +1,5 @@
 import randam
 
-#test trigger1
+#test trigger2
 if __name__ == "__main__":
   print(random.randint(100, 999))
